@@ -56,3 +56,10 @@ To keep things simple, we ditched completely the concept of users for daybed,
 in favor of tokens.
 
 Each 
+
+Being offline first
+-------------------
+
+- Already existing projects.
+- How we try to be different from what exists.
+- How do we deal with syncing.
