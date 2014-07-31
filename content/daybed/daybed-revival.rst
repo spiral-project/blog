@@ -84,13 +84,16 @@ Let's have a look at the steps required to use Daybed:
 
 1. Generate or register a token with a `POST` or `PUT` on `/tokens`
    (Actually, this is optional, you can have everything public and don't bother
-   with tokens either);
+   with tokens either). You get the token back in the `Hawk-Session-Token`
+   header.
 2. Define a model by doing a `POST` or a `PUT` on `/models` (Alternately, you can
    just reuse one existing model);
 3. Post data to this model using `POST` on `/models/{name}/records`;
 4. Retrieve data back using `GET` on `/models/{name}/records`.
 
-(Steps 2, 3 and 4 can be authenticated if you want to deal with permissions)
+(Steps 2, 3 and 4 can be authenticated if you want to deal with permissions,
+you should use a hawk-compatible client (there are plenty), or optionally do
+requests using Basic Auth.
 
 And that's it. You don't need to think about anything else, that just works.
 
@@ -129,7 +132,7 @@ in a glimpse.
 
 In the future, we might support multiple authentication schemes, and why not
 putting Persona back in the mix, as it's a really powerful decentralized way of
-authenticating. Future will say.
+authenticating. Time will tell.
 
 What's next?
 ------------
