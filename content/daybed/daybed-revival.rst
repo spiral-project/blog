@@ -27,13 +27,13 @@ way.
 Adding Access control to the mix
 --------------------------------
 
-Then we decided it would make sense to have ACLs on top of the API, to decide
-who can access to what. After a bunch of time hacking, we came up with
+Then we decided it would make sense to have permissions on top of the API, to
+decide who can access to what. After a bunch of time hacking, we came up with
 a working solution:
 
 Each model would be created with an ACL policy attached to it. This policy
 would tell who can do what, for each kind of data attached to a model (the
-definition, the data, and the ACLs).
+definition, the data, and the permissions).
 
 The way we defined this was inspired by how UNIX filesystems works. You would
 define a bunch of permissions, with a binary mask and then we would use it to
@@ -59,8 +59,8 @@ We had other duties for some time and when we got back to Daybed, we were a bit
 affraid of the monster we created. "What's wrong with this API? It used to be
 simple!"
 
-We sat back and gave some thoughts to all this. How could we deal with ACLs in
-a simple and straightforward way?
+We sat back and gave some thoughts to all this. How could we deal with
+permissions in a simple and straightforward way?
 
 And, all of a sudden, everything made sense: we don't need to have users,
 groups and policies… Let's just have access tokens that daybed issues to its
@@ -90,7 +90,7 @@ Let's have a look at the steps required to use daybed:
 3. Post data to this model using `POST` on `/models/{name}/records`;
 4. Retrieve data back using `GET` on `/models/{name}/records`.
 
-(Steps 2, 3 and 4 can be authenticated if you want to deal with ACLs).
+(Steps 2, 3 and 4 can be authenticated if you want to deal with permissions)
 
 And that's it. You don't need to think about anything else, that just works.
 
