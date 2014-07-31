@@ -9,14 +9,14 @@ data validation service. We wanted to create such a system because we wanted
 (into other things) to have a nice and open source alternative to google forms
 (a tool provided by google to create forms).
 
-Since then, the goals and implementation of daybed changed quite a few times,
+Since then, the goals and implementation of Daybed changed quite a few times,
 and we thought that would be interesting to outline what changed in our vision
 and what's the current direction we're taking.
 
 A proof of concept
 ------------------
 
-The first version of daybed was pretty simple and we hacked everything together
+The first version of Daybed was pretty simple and we hacked everything together
 pretty quickly: you could define a model and send data to the server that would
 validate against the definition you created.
 
@@ -46,7 +46,7 @@ so that users wouldn't need to define each time the policy for a model.
 
 We failed to hide these concepts in the API and ended up with an API that was
 too complex to be useful. One would need to think about the users for an
-instance of daybed, groups for the users and so on.
+instance of Daybed, groups for the users and so on.
 
 Don't get me wrong, users, groups and policies are pretty useful and valid
 concepts, but exposing them to the consumer of the API just happened to make
@@ -63,7 +63,7 @@ We sat back and gave some thoughts to all this. How could we deal with
 permissions in a simple and straightforward way?
 
 And, all of a sudden, everything made sense: we don't need to have users,
-groups and policies… Let's just have access tokens that daybed issues to its
+groups and policies… Let's just have access tokens that Daybed issues to its
 users, and we could then attach permissions to these tokens.
 
 The advantage of this way of doing things is that the concepts are simple.  Of
@@ -80,7 +80,7 @@ policies, in favor of tokens.
 This has the side-effect of keeping things really simple to think, and simple
 to implement.
 
-Let's have a look at the steps required to use daybed:
+Let's have a look at the steps required to use Daybed:
 
 1. Generate or register a token with a `POST` or `PUT` on `/tokens`
    (Actually, this is optional, you can have everything public and don't bother
@@ -109,7 +109,7 @@ case, for the following reasons:
 
 - Persona had been crafted for browsers, and the target audience for Daybed is
   not only browsers. We want anyone with an access to the network to be able to
-  deal with daybed.
+  deal with Daybed.
 
 - We had trouble making it work like we wanted because the concepts behind
   persona are quite complex. It wasn't fitting well in the REST API world we
@@ -124,7 +124,7 @@ If you're not familiar with this, it can be seen as the successor of OAuth, but
 a lot simpler to use.
 
 To authenticate to Daybed, you now just need to send your Hawk credentials
-(using an hawk-compatible client), and whoever registers to daybed can get some
+(using an hawk-compatible client), and whoever registers to Daybed can get some
 in a glimpse.
 
 In the future, we might support multiple authentication schemes, and why not
@@ -150,7 +150,7 @@ straightforward for now:
   stay focused on a real use case;
 
 - Being `offline first <http://offlinefirst.org>`_. That makes a lot of sense
-  to use daybed in a no-backend environment, even if that sounds a bit weird.
+  to use Daybed in a no-backend environment, even if that sounds a bit weird.
 
   We're experimenting with this idea, and see how all that could come together.
   We're considering integration with other services like PouchDB or Hoodie for
