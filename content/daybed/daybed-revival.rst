@@ -21,7 +21,7 @@ pretty quickly: you could define a model and send data to the server that would
 validate against the definition you created.
 
 This was working pretty great and we added atop of that a bunch of geographic
-fields, so it was possible to valide different geometries in a really simple
+fields, so it was possible to validate different geometries in a really simple
 way.
 
 Adding Access control to the mix
@@ -82,7 +82,7 @@ to implement.
 
 Let's have a look at the steps required to use daybed:
 
-1. Generate or register a keypair with a `POST` or `PUT` on `/tokens`
+1. Generate or register a token with a `POST` or `PUT` on `/tokens`
    (Actually, this is optional, you can have everything public and don't bother
    with tokens either);
 2. Define a model by doing a `POST` or a `PUT` on `/model` (Alternately, you can
