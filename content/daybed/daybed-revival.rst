@@ -85,10 +85,10 @@ Let's have a look at the steps required to use daybed:
 1. Generate or register a token with a `POST` or `PUT` on `/tokens`
    (Actually, this is optional, you can have everything public and don't bother
    with tokens either);
-2. Define a model by doing a `POST` or a `PUT` on `/model` (Alternately, you can
+2. Define a model by doing a `POST` or a `PUT` on `/models` (Alternately, you can
    just reuse one existing model);
-3. Post data to this model using `POST` on `/model/{name}/data`;
-4. Retrieve data back using `GET` on `/model/{name}/data`.
+3. Post data to this model using `POST` on `/models/{name}/records`;
+4. Retrieve data back using `GET` on `/models/{name}/records`.
 
 (Steps 2, 3 and 4 can be authenticated if you want to deal with ACLs).
 
