@@ -12,10 +12,10 @@ FTP_HOST=localhost
 FTP_USER=anonymous
 FTP_TARGET_DIR=/
 
-SSH_HOST=files.lolnet.lan
+SSH_HOST=ssh.alwaysdata.com
 SSH_PORT=22
-SSH_USER=alexis
-SSH_TARGET_DIR=/home/www/spiral-project.org/blog/
+SSH_USER=ionyse_daybed
+SSH_TARGET_DIR=/home/ionyse/daybed/blog/
 
 S3_BUCKET=my_s3_bucket
 
@@ -53,6 +53,8 @@ help:
 	@echo '                                                                       '
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html'
 	@echo '                                                                       '
+
+upload: rsync_upload
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
