@@ -25,7 +25,7 @@ DEFAULT_PAGINATION = False
 THEME = "pure"
 
 TAGLINE = u"Validation and storage as a service"
-COVER_IMG_URL = '/images/sidebar.jpg'
+COVER_IMG_URL = '/theme/sidebar.jpg'
 
 SOCIAL = (
     ('envelope', 'http://librelist.com/browser/daybed.dev/'),
