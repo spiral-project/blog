@@ -7,17 +7,23 @@ How we implemented a Firefox Account OAuth service provider with Cornice
 :tags: FxA, python
 :lang: en
 
-Daybed is user agnostic, when you logs in you grab an Hawk Token
-derives into credentials that are used to sign every request made to
-the API.
+Daybed is user agnostic. It does not handle users and passwords but
+tokens, using Hawk. When you log in, you obtain a Hawk Token derived
+into credentials that are used to sign every request made to the API.
 
-This token can then be linked to anything: the user, the device or a
-group with share credentials.
+This token can then represent anything: the user, the device or a
+group of users that share the same token.
 
-This lets people use daybed the way it fits their software.
+This lets people use Daybed the way it fits their software.
 
-Also when you want user's devices to use the same token, you need a way
-to share it.
+But on the other hand, when a user wants to user the same token on all
+her devices, she needs a way to share it easily and securely.
+
+There are several ways to do it, among them:
+
+- Put the token in the URLs of your applications (like 0bin, doodle, google docs, ...), and share the URLs on your devices using synced bookmarks for example
+- Build the token from the authorization header
+- Build the token from a user id obtained via OAuth
 
 
 Get a token using Basic-Auth
@@ -89,8 +95,12 @@ The OAuth flow works as defined here:
 6. The ``access_token`` can then be used to ask about the user profile: ``GET conf.profile_uri + "/profile"`` with ``Authorization: Bearer <access_token>`` header.
 7. From the profile you can get the ``email``, ``avatar`` and ``uid`` of the user.
 
+After the OAuth flow, we generate a token for this user, for the same
+Firefox Account, the token will always be the same.
 
-You have got an example of the view implementations here: https://github.com/spiral-project/daybed-fxa-oauth
+You have got an example of the view implementations here:
+https://github.com/spiral-project/daybed-fxa-oauth
+
 
 Other authentication backends
 -----------------------------
@@ -99,8 +109,11 @@ We have made this Authentication layer a pluggable layer so that you
 can deploy Daybed with any of the one you'd like as well as all of
 them.
 
-You have another example for the BrowserID protocol here: https://github.com/spiral-project/daybed-browserid 
+You have another example for the BrowserID protocol here:
+https://github.com/spiral-project/daybed-browserid
 
-You can use it with Persona, Firefox Account BrowserId and even MSISDN-Gateway to let people log using their phone number.
+You can use it with Persona, Firefox Account BrowserId and even
+MSISDN-Gateway to let people log using their phone number.
 
-This plugins can also help you to implement other authentication backends for Daybed. (SAML, other OAuth)
+This plugins can also help you to implement other authentication
+backends for Daybed. (SAML, other OAuth)
